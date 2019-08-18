@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="310dp"
-        android:layout_height="63dp"
+        android:layout_width="305dp"
+        android:layout_height="82dp"
         android:layout_marginStart="45dp"
         android:layout_marginTop="35dp"
         android:text="Urban Access Residente"
