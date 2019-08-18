@@ -28,8 +28,12 @@ public class CodigoActivity extends AppCompatActivity {
 
         txtResultado=(EditText) findViewById(R.id.editText);
         btnEntrar=(Button) findViewById(R.id.button);
-//cuando haya clic en el boton
+
+
+        //cuando haya clic en el boton luego verificara los parametros que tenemos
         btnEntrar.setOnClickListener(new View.OnClickListener(){
+
+            //Aqui va la validacion de los codigos ingresados, si son correctos ejecuta
 
             @Override
             public void onClick(View view) {
@@ -49,9 +53,10 @@ public class CodigoActivity extends AppCompatActivity {
     }
 
 
+
+
 //Para conectar a la red y mandarle a la ip los requerimientos
     public void solicita(String comando){
-
 
         ConnectivityManager connMgr= (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
