@@ -71,7 +71,7 @@ public class AsyncQuery extends AsyncTask<String[],Void,String[]> {
 
             }if(codigo.equals("2")){
                 clave_acceso=datos[0][6];
-                    rs = st.executeQuery("SELECT clave_acceso FROM Usuario WHERE clave_acceso='"+clave_acceso+"';");
+                    rs = st.executeQuery("SELECT Id_Usuario,clave_acceso FROM Usuario WHERE clave_acceso='"+clave_acceso+"';");
                     rs.last();
                     numFilas = rs.getRow();
                     if(numFilas == 0)
@@ -83,11 +83,15 @@ public class AsyncQuery extends AsyncTask<String[],Void,String[]> {
                         while (rs.next())
                         {
                             numColumnas = rs.getMetaData().getColumnCount();
-                            totalResultadoSQL = new String[1];
+                            totalResultadoSQL = new String[2];
                             for(int i=1;i<=numColumnas;i++){
                                 totalResultadoSQL[i-1]= rs.getString(i);
                             }
                         }
+                        String q = "INSERT INTO Entrada (Id_Usuario,Fecha,Id_Equipo) VALUES " +
+                                "('" + totalResultadoSQL[0] + "','2019-08-21','1')";
+                        Log.d("Query: ",q);
+                        st.executeUpdate(q);
                     }
 
             }

@@ -61,8 +61,9 @@ public class CodigoActivity extends AppCompatActivity {
             }else{
                 resultadoSQL = new AsyncQuery().execute(datosConexion).get();
                 Toast.makeText(CodigoActivity.this,"Conexión Establecida", Toast.LENGTH_LONG).show();
-                psw=resultadoSQL[0];
+                psw=resultadoSQL[1];
                 if(txt1.getText().toString().equals(psw)){
+                    new AsyncQuery().execute(datosConexion);
                     Intent i = new Intent(this, MapsActivity.class );
                     i.putExtra("Lat",-2.0641032);
                     i.putExtra("Long",-79.8987751);
