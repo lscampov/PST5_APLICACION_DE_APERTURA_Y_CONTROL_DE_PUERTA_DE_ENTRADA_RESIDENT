@@ -63,7 +63,7 @@ public class CodigoActivity extends AppCompatActivity {
                 Toast.makeText(CodigoActivity.this,"Conexión Establecida", Toast.LENGTH_LONG).show();
                 psw=resultadoSQL[0];
                 if(txt1.getText().toString().equals(psw)){
-                    Intent i = new Intent(this, MapaActivity.class );
+                    Intent i = new Intent(this, MapsActivity.class );
                     startActivity(i);
                     Toast.makeText(this, "Ingreso Exitoso.", Toast.LENGTH_LONG).show();
                 }else{
