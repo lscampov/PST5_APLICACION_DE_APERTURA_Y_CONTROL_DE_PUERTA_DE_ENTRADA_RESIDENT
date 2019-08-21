@@ -23,15 +23,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        Bundle extras=getIntent().getExtras();
+        Double lat=extras.getDouble("Lat");
+        Double longitud=extras.getDouble("Long");
+
         // Agrego un marcador en la villa.
-        LatLng villa = new LatLng(-2.0641032, -79.8987751);
+        LatLng villa = new LatLng(lat, longitud);
         mMap.addMarker(new MarkerOptions().position(villa).title("*** Urban Access ***"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(villa,15));
     }
+
 }

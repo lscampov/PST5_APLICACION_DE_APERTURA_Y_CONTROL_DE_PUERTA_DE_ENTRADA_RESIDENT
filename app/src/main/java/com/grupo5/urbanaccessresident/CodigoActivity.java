@@ -64,6 +64,8 @@ public class CodigoActivity extends AppCompatActivity {
                 psw=resultadoSQL[0];
                 if(txt1.getText().toString().equals(psw)){
                     Intent i = new Intent(this, MapsActivity.class );
+                    i.putExtra("Lat",-2.0641032);
+                    i.putExtra("Long",-79.8987751);
                     startActivity(i);
                     Toast.makeText(this, "Ingreso Exitoso.", Toast.LENGTH_LONG).show();
                 }else{
