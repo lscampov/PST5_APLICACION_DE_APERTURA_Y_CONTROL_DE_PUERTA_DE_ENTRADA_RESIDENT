@@ -17,7 +17,8 @@ public class AccesoActivityResident extends AppCompatActivity {
     private String database = "WAgQ6gLNl1";
     private String[] datosConexion = null;
     private EditText txt1,txt2;
-    private String codigo,user,psw;
+    private String codigo,user,psw,id_Usuario;
+
     Button btnInicio;
 
     @Override
@@ -57,8 +58,12 @@ public class AccesoActivityResident extends AppCompatActivity {
                 Toast.makeText(AccesoActivityResident.this,"Conexión Establecida", Toast.LENGTH_LONG).show();
                 user=resultadoSQL[0];
                 psw=resultadoSQL[1];
+                id_Usuario=resultadoSQL[2];
                 if(txt2.getText().toString().equals(psw)){
                     Intent i = new Intent(this, CodigoActivity.class );
+                    i.putExtra("nombre",user);
+                    i.putExtra("contraseña",psw);
+                    i.putExtra("id_Usuario",id_Usuario);
                     startActivity(i);
                     Toast.makeText(this, "Ingreso Exitoso.", Toast.LENGTH_LONG).show();
                 }else{

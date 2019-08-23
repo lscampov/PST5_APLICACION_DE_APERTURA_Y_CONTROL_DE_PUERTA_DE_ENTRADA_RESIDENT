@@ -53,7 +53,7 @@ public class AsyncQuery extends AsyncTask<String[],Void,String[]> {
             if(codigo.equals("1")) {
                 user= datos[0][6];
                 pass= datos[0][7];
-                rs = st.executeQuery("SELECT User,Password FROM Usuario WHERE User='"+user+"';");
+                rs = st.executeQuery("SELECT User,Password,Id_Usuario FROM Usuario WHERE User='"+user+"';");
                 rs.last();
                 numFilas = rs.getRow();
                 if (numFilas == 0) {
@@ -62,8 +62,8 @@ public class AsyncQuery extends AsyncTask<String[],Void,String[]> {
                     rs.beforeFirst();
                     while (rs.next()) {
                         numColumnas = rs.getMetaData().getColumnCount();
+                        totalResultadoSQL=new String[3];
                         for (int i = 1; i <= numColumnas; i++) {
-                            totalResultadoSQL=new String[2];
                             totalResultadoSQL[i - 1] = rs.getString(i);
                         }
                     }
@@ -92,6 +92,7 @@ public class AsyncQuery extends AsyncTask<String[],Void,String[]> {
                                 "('" + totalResultadoSQL[0] + "','2019-08-21','1')";
                         Log.d("Query: ",q);
                         st.executeUpdate(q);
+                        String vv;
                     }
 
             }
